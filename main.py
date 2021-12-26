@@ -2,6 +2,8 @@ import json
 import random
 import os
 
+from array import *
+
 os.system('clear')
 
 print("""1 = Lotto 6/49
@@ -26,7 +28,7 @@ if lotto==3:
 if lotto==4:
     jsonfile="ToutouRien.json"
 
-with open(jsonfile,"rb") as f:
+with open('/home/richard/Documents/sambashare/'+jsonfile,"rb") as f:
    data = json.load(f)
 
 global count
@@ -35,7 +37,21 @@ count = len(data)
 #Numbers = pd.DataFrame(data)
 
 PickNumbers=True
-samenumber = True
+
+def PickLottoNumbers(samenumber,total):
+        samenumber=1 
+        count2=0
+        for number in numbers:
+            if numbers[count2-1] == number and count2 !=0:
+               rnd = random.randint(1,total)
+               numbers[count2]=rnd
+               rnd = random.randint(1,total)
+               samenumber+=1
+            else:
+                samenumber-=1
+            count2+=1
+            numbers.sort()
+        return numbers,samenumber
 
 #Lotto 6/49 Drawings
 if lotto == 1:
@@ -44,16 +60,16 @@ if lotto == 1:
         numbers=[]
 
         for count in range(1,7):
-            count2=0
             rnd = random.randint(1,49)
-            for number in numbers:
-                if numbers[count2-1] == number and count2 !=0:
-                    rnd = random.randint(1,49)
-                    numbers[count2]=rnd
-                count2+=1
-            rnd = random.randint(1,49)    
-            numbers.append(rnd)
-            numbers.sort()
+            samenumber=0
+            numbers2 = PickLottoNumbers(samenumber,49)
+            numbers2[0].append(rnd)
+            numbers2[0].sort()
+            samenumber=0
+        while samenumber !=-5:
+            numbers2 = PickLottoNumbers(samenumber,49)
+            samenumber=numbers2[1]
+        numbers=numbers2[0]
 
         for pan in data:
             if num==1:
@@ -91,16 +107,16 @@ if lotto == 2:
         numbers=[]
 
         for count in range(1,8):
-            count2=0
             rnd = random.randint(1,50)
-            for number in numbers:
-                if numbers[count2-1] == number and count2 !=0:
-                    rnd = random.randint(1,50)
-                    numbers[count2]=rnd
-                count2+=1
-            rnd = random.randint(1,50)    
-            numbers.append(rnd)
-            numbers.sort()
+            samenumber=0
+            numbers2 = PickLottoNumbers(samenumber,50)
+            numbers2[0].append(rnd)
+            numbers2[0].sort()
+            samenumber=0
+        while samenumber !=-6:
+            numbers2 = PickLottoNumbers(samenumber,50)
+            samenumber=numbers2[1]
+        numbers=numbers2[0]
 
         for pan in data:
             if num==1:
@@ -138,16 +154,16 @@ if lotto == 3:
         numbers=[]
 
         for count in range(1,6):
-            count2=0
             rnd = random.randint(1,49)
-            for number in numbers:
-                if numbers[count2-1] == number and count2 !=0:
-                    rnd = random.randint(1,49)
-                    numbers[count2]=rnd
-                count2+=1
-            rnd = random.randint(1,49)    
-            numbers.append(rnd)
-            numbers.sort()
+            samenumber=0
+            numbers2 = PickLottoNumbers(samenumber,49)
+            numbers2[0].append(rnd)
+            numbers2[0].sort()
+            samenumber=0
+        while samenumber !=-4:
+            numbers2 = PickLottoNumbers(samenumber,49)
+            samenumber=numbers2[1]
+        numbers=numbers2[0]
 
         rnd = random.randint(1,6)
         numbers.append(rnd)
@@ -192,16 +208,16 @@ if lotto == 4:
         numbers=[]
 
         for count in range(1,13):
-            count2=0
             rnd = random.randint(1,24)
-            for number in numbers:
-                if numbers[count2-1] == number and count2 !=0:
-                    rnd = random.randint(1,24)
-                    numbers[count2]=rnd
-                count2+=1
-            rnd = random.randint(1,24)    
-            numbers.append(rnd)
-            numbers.sort()
+            samenumber=0
+            numbers2 = PickLottoNumbers(samenumber,24)
+            numbers2[0].append(rnd)
+            numbers2[0].sort()
+            samenumber=0
+        while samenumber !=-11:
+            numbers2 = PickLottoNumbers(samenumber,24)
+            samenumber=numbers2[1]
+        numbers=numbers2[0]
 
         for pan in data:
             if num==4:
@@ -218,10 +234,5 @@ if lotto == 4:
             PickNumbers=True
         else:
             PickNumbers=False         
-        #if numbers[0] != pan["p1"] and numbers[1] != pan["p2"] and numbers[2] != pan["p3"] and numbers[3] != pan["p4"] and numbers[4] != pan["p5"] and numbers[5] != pan["p6"] and numbers[6] != pan["p7"] and numbers[7] != pan["p8"] and numbers[8] != pan["p9"] and numbers[9] != pan["p10"] and numbers[10] != pan["p11"] and numbers[11] != pan["p12"]:
-         #   PickNumbers=True
-        #else:
-        #    PickNumbers=False 
-            #print(pan)
 
-    print("The winning Tout ou Rien numbers are "+str(numbers))        
+    print("The winning Tout ou Rien numbers are "+str(numbers))
