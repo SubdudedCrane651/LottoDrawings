@@ -2,8 +2,6 @@ import json
 import random
 import os
 
-from array import *
-
 os.system('clear')
 
 print("""1 = Lotto 6/49
