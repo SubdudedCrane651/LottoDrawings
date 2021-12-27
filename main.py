@@ -14,17 +14,16 @@ lotto=int(input("What Lotto numbers do you wish to pick :"))
 print()
 num=int(input("1 - 4 Numbers :"))
 
-if lotto==1:
-    jsonfile="Lotto649.json"
+def choose(i):
+    switcher={
+        1:'Lotto649.json',
+        2:'LottoMax.json',
+        3:'Grande_Vie.json',
+        4:'ToutouRien.json'
+    }
+    return switcher.get(i,'Invalid Number')
 
-if lotto==2:
-    jsonfile="LottoMax.json"
-
-if lotto==3:
-    jsonfile="Grande_Vie.json"
-
-if lotto==4:
-    jsonfile="ToutouRien.json"
+jsonfile = choose(num)
 
 with open(jsonfile,"rb") as f:
    data = json.load(f)
