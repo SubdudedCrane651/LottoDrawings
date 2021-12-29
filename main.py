@@ -23,7 +23,7 @@ def choose(i):
     }
     return switcher.get(i,'Invalid Number')
 
-jsonfile = choose(num)
+jsonfile = choose(lotto)
 
 with open(jsonfile,"rb") as f:
    data = json.load(f)
@@ -190,7 +190,7 @@ if lotto == 3:
             PickNumbers=True
         else:
             PickNumbers=False         
-        if numbers[0] == pan["p1"] and numbers[1] == pan["p2"] and numbers[2] == pan["p3"] and numbers[3] == pan["p4"] and numbers[4] == pan["p5"] and numbers[5] == pan["gn"]:
+        if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["gn"]):
             PickNumbers=True
         else:
             PickNumbers=False 
