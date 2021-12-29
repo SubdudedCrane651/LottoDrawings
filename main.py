@@ -80,7 +80,7 @@ if lotto == 1:
                 else:
                     PickNumbers=False      
             elif num==3:
-                if numbers[0] == int(pan["P1"] and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]):
+                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False    
