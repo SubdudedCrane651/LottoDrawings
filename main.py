@@ -70,26 +70,26 @@ if lotto == 1:
 
         for pan in data:
             if num==1:
-                if numbers[0] == pan["P1"]:
+                if numbers[0] == int(pan["P1"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False    
             elif num==2:
-                if numbers[0] == pan["P1"] and numbers[1] == pan["P2"]:
+                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False      
             elif num==3:
-                if numbers[0] == pan["P1"] and numbers[1] == pan["P2"] and numbers[2] == pan["P3"]:
+                if numbers[0] == int(pan["P1"] and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False    
             elif num==4:
-                if numbers[0] == pan["P1"] and numbers[1] == pan["P2"] and numbers[2] == pan["P3"] and numbers[3] == pan["P4"]:
+                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False            
-        if numbers[0] == pan["P1"] and numbers[1] == pan["P2"] and numbers[2] == pan["P3"] and numbers[3] == pan["P4"] and numbers[4] == pan["P5"] and numbers[5] == pan["P6"]:
+        if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]) and numbers[4] == int(pan["P5"]) and numbers[5] == int(pan["P6"]):
             PickNumbers=True
         else:
             PickNumbers=False 
@@ -117,26 +117,26 @@ if lotto == 2:
 
         for pan in data:
             if num==1:
-                if numbers[0] == pan["P1"]:
+                if numbers[0] == int(pan["P1"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False    
             elif num==2:
-                if numbers[0] == pan["P1"] and numbers[1] == pan["P2"]:
+                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False      
             elif num==3:
-                if numbers[0] == pan["P1"] and numbers[1] == pan["P2"] and numbers[2] == pan["P3"]:
+                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False    
             elif num==4:
-                if numbers[0] == pan["P1"] and numbers[1] == pan["P2"] and numbers[2] == pan["P3"] and numbers[3] == pan["P4"]:
+                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False            
-        if numbers[0] == pan["P1"] and numbers[1] == pan["P2"] and numbers[2] == pan["P3"] and numbers[3] == pan["P4"] and numbers[4] == pan["P5"] and numbers[5] == pan["P6"] and numbers[6]==pan["P7"]:
+        if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]) and numbers[4] == int(pan["P5"]) and numbers[5] == int(pan["P6"]) and numbers[6]==int(pan["P7"]):
             PickNumbers=True
         else:
             PickNumbers=False 
@@ -167,26 +167,26 @@ if lotto == 3:
 
         for pan in data:
             if num==1:
-                if numbers[0] == pan["p1"]:
+                if numbers[0] == int(pan["p1"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False    
             elif num==2:
-                if numbers[0] == pan["p1"] and numbers[1] == pan["p2"]:
+                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False      
             elif num==3:
-                if numbers[0] == pan["p1"] and numbers[1] == pan["p2"] and numbers[2] == pan["p3"]:
+                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False    
             elif num==4:
-                if numbers[0] == pan["p1"] and numbers[1] == pan["p2"] and numbers[2] == pan["p3"] and numbers[3] == pan["p4"]:
+                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False
-        if numbers[0] == pan["p1"] and numbers[1] == pan["p2"] and numbers[2] == pan["p3"] and numbers[3] == pan["p4"] and numbers[4] == pan["p5"]:
+        if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]):
             PickNumbers=True
         else:
             PickNumbers=False         
@@ -216,18 +216,30 @@ if lotto == 4:
             samenumber=numbers2[1]
         numbers=numbers2[0]
 
+        
         for pan in data:
             if num==4:
-                if numbers[0] == pan["p1"] and numbers[1] == pan["p2"] and numbers[2] == pan["p3"] and numbers[3] == pan["p4"] and numbers[4]:
+                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4]:
                     PickNumbers=True
                 else:
                     PickNumbers=False
-                if numbers[0] == pan["p1"] and numbers[1] == pan["p2"] and numbers[2] == pan["p3"] and numbers[3] == pan["p4"] and numbers[4] == pan["p5"] and numbers[5] == pan["p6"] and numbers[6] == pan["p7"] and numbers[7] == pan["p8"]:
+                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["p6"]) and numbers[6] == int(pan["p7"]) and numbers[7] == int(pan["p8"]):
                     PickNumbers=True
                 else:
                     PickNumbers=False
+        
+        count =0
+        hits=0
 
-        if numbers[0] == pan["p1"] and numbers[1] == pan["p2"] and numbers[2] == pan["p3"] and numbers[3] == pan["p4"] and numbers[4] == pan["p5"] and numbers[5] == pan["p6"] and numbers[6] == pan["p7"] and numbers[7] == pan["p8"] and numbers[8] == pan["p9"] and numbers[9] == pan["p10"] and numbers[10] == pan["p11"] and numbers[11] == pan["p12"]:
+        for pan in data:
+          for num in range(0,12):
+            #print(numbers[num])
+            #print (type(pan))
+            if numbers[num] == int(pan["p1"]):          
+             hits+=1
+        #print(hits)
+
+        if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["p6"]) and numbers[6] == int(pan["p7"]) and numbers[7] == int(pan["p8"]) and numbers[8] == int(pan["p9"]) and numbers[9] == int(pan["p10"]) and numbers[10] == int(pan["p11"]) and numbers[11] == int(pan["p12"]):
             PickNumbers=True
         else:
             PickNumbers=False         
