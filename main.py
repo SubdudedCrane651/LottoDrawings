@@ -11,8 +11,8 @@ print("""1 = Lotto 6/49
 print()
 lotto=int(input("What Lotto numbers do you wish to pick :"))
 
-print()
-num=int(input("1 - 4 Numbers :"))
+#print()
+#num=int(input("1 - 4 Numbers :"))
 
 def choose(i):
     switcher={
@@ -68,34 +68,32 @@ if lotto == 1:
             samenumber=numbers2[1]
         numbers=numbers2[0]
 
-        for pan in data:
-            if num==1:
-                if numbers[0] == int(pan["P1"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False    
-            elif num==2:
-                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False      
-            elif num==3:
-                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False    
-            elif num==4:
-                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False            
-        if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]) and numbers[4] == int(pan["P5"]) and numbers[5] == int(pan["P6"]):
-            PickNumbers=True
-        else:
-            PickNumbers=False 
-            #print(pan)
+        with open("LottoDrawings.txt",'w+') as File:
 
-        print("The winning 6/49 numbers are "+str(numbers))
+          for pan in data:
+            
+            if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]) and numbers[4] == int(pan["P5"]) and numbers[5] == int(pan["P6"]):
+              PickNumbers=True
+              File.write(pan["Drawdate"]&", ")
+            else:
+              PickNumbers=False
+            hit=0
+            
+            for num in range(0,6):
+              #print(numbers[num])
+              #print (type(pan))
+              if numbers[num] == int(pan["P1"]) or numbers[num] == int(pan["P2"]) or numbers[num] == int(pan["P3"]) or numbers[num] == int(pan["P4"]) or numbers[num] == int(pan["P5"]) or numbers[num] == int(pan["P6"]) or numbers[num] == int(pan["P7"]):
+                 hit+=1
+              if hit == 4:
+               #print(str(numbers) + " "+str(pan))
+               PickNumbers=True
+               File.write(pan["Drawdate"]+", ")
+              else:
+               PickNumbers=False
+          
+              #print(pan)
+
+          print("The winning 6/49 numbers are "+str(numbers))
 
 #LottoMax Drawings
 if lotto == 2:
@@ -115,37 +113,37 @@ if lotto == 2:
             samenumber=numbers2[1]
         numbers=numbers2[0]
 
-        for pan in data:
-            if num==1:
-                if numbers[0] == int(pan["P1"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False    
-            elif num==2:
-                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False      
-            elif num==3:
-                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False    
-            elif num==4:
-                if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False            
-        if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]) and numbers[4] == int(pan["P5"]) and numbers[5] == int(pan["P6"]) and numbers[6]==int(pan["P7"]):
-            PickNumbers=True
-        else:
-            PickNumbers=False 
-            #print(pan)
+        with open("LottoDrawings.txt",'w+') as File:
 
-        print("The LottoMax winning numbers are "+str(numbers))
+          for pan in data:
+
+           if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]) and numbers[4] == int(pan["P5"]) and numbers[5] == int(pan["P6"]) and numbers[6]==int(pan["P7"]):
+              PickNumbers=True
+              File.write(pan["Drawdate"]+", ")
+           else:
+              PickNumbers=False 
+              #print(pan)
+
+           hit=0
+           for num in range(0,7):
+                #print(numbers[num])
+                #print (type(pan))
+            if numbers[num] == int(pan["P1"]) or numbers[num] == int(pan["P2"]) or numbers[num] == int(pan["P3"]) or numbers[num] == int(pan["P4"]) or numbers[num] == int(pan["P5"]) or numbers[num] == int(pan["P6"] or numbers[num] == int(pan["P7"])):
+               hit+=1
+            if hit == 4:
+                #print(str(numbers) + " "+str(pan))
+               PickNumbers=True
+               File.write(pan["Drawdate"]+", ")
+            else:
+               PickNumbers=False
+
+          print("The LottoMax winning numbers are "+str(numbers))
 
 #Grande Vie Drawings
 if lotto == 3:
+
+  with open("LottoDrawings.txt",'w+') as File:
+
     while PickNumbers:
 
         numbers=[]
@@ -165,38 +163,36 @@ if lotto == 3:
         rnd = random.randint(1,6)
         numbers.append(rnd)
 
-        for pan in data:
-            if num==1:
-                if numbers[0] == int(pan["p1"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False    
-            elif num==2:
-                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False      
-            elif num==3:
-                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False    
-            elif num==4:
-                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False
-        if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]):
-            PickNumbers=True
-        else:
-            PickNumbers=False         
-        if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["gn"]):
-            PickNumbers=True
-        else:
-            PickNumbers=False 
-            #print(pan)
+        with open("LottoDrawings.txt",'w+') as File:
 
-        print("The winning Grande Vie numbers are "+str(numbers))
+          for pan in data:
+            if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]):
+              PickNumbers=True
+              File.write(pan["Drawdate"]+", ")
+            else:
+              PickNumbers=False
+
+            if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["gn"]):
+              PickNumbers=True
+              File.write(pan["Drawdate"]+", ")
+            else:
+              PickNumbers=False 
+              #print(pan)
+            hit=0
+
+            for num in range(0,5):
+              #print(numbers[num])
+              #print (type(pan))
+              if numbers[num] == int(pan["p1"]) or numbers[num] == int(pan["p2"]) or numbers[num] == int(pan["p3"]) or numbers[num] == int(pan["p4"]):       
+                hit+=1
+              if hit == 3:
+              #print(str(numbers) + " "+str(pan))
+                PickNumbers=True
+                File.write(pan["Drawdate"]+", ")
+              else:
+                PickNumbers=False
+
+          print("The winning Grande Vie numbers are "+str(numbers))
 
 #Tout ou Rien Drawings
 if lotto == 4:
@@ -216,32 +212,27 @@ if lotto == 4:
             samenumber=numbers2[1]
         numbers=numbers2[0]
 
-        
-        for pan in data:
-            if num==4:
-                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4]:
-                    PickNumbers=True
-                else:
-                    PickNumbers=False
-                if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["p6"]) and numbers[6] == int(pan["p7"]) and numbers[7] == int(pan["p8"]):
-                    PickNumbers=True
-                else:
-                    PickNumbers=False
-        
-        count =0
-        hits=0
+        with open("LottoDrawings.txt",'w+') as File:
 
-        for pan in data:
-          for num in range(0,12):
-            #print(numbers[num])
-            #print (type(pan))
-            if numbers[num] == int(pan["p1"]):          
-             hits+=1
-        #print(hits)
+          for pan in data:
 
-        if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["p6"]) and numbers[6] == int(pan["p7"]) and numbers[7] == int(pan["p8"]) and numbers[8] == int(pan["p9"]) and numbers[9] == int(pan["p10"]) and numbers[10] == int(pan["p11"]) and numbers[11] == int(pan["p12"]):
-            PickNumbers=True
-        else:
-            PickNumbers=False         
+             if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["p6"]) and numbers[6] == int(pan["p7"]) and numbers[7] == int(pan["p8"]) and numbers[8] == int(pan["p9"]) and numbers[9] == int(pan["p10"]) and numbers[10] == int(pan["p11"]) and numbers[11] == int(pan["p12"]):
+                PickNumbers=True
+                File.write(pan["Drawdate"]+", ")
+             else:
+               PickNumbers=False
+
+             hit=0
+             for num in range(0,12):
+               #print(numbers[num])
+               #print (type(pan))
+                 if numbers[num] == int(pan["p1"]) or numbers[num] == int(pan["p2"]) or numbers[num] == int(pan["p3"]) or numbers[num] == int(pan["p4"]) or numbers[num] == int(pan["p5"]) or numbers[num] == int(pan["p6"]) or numbers[num] == int(pan["p7"]) or numbers[num] == int(pan["p8"]) or numbers[num] == int(pan["p9"]) or numbers[num] == int(pan["p10"]) or numbers[num] == int(pan["p11"]) or numbers[num] == int(pan["p12"]):          
+                  hit+=1
+                 if hit == 8 or hit == 0:
+                #print(str(numbers) + " "+str(pan))
+                  PickNumbers=True
+                  File.write(pan["Drawdate"]+", ")
+                 else:
+                  PickNumbers=False
 
     print("The winning Tout ou Rien numbers are "+str(numbers))
