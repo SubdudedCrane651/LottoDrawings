@@ -72,11 +72,6 @@ if lotto == 1:
 
           for pan in data:
             
-            if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]) and numbers[4] == int(pan["P5"]) and numbers[5] == int(pan["P6"]):
-              PickNumbers=True
-              File.write(pan["Drawdate"]&", ")
-            else:
-              PickNumbers=False
             hit=0
             
             for num in range(0,6):
@@ -84,7 +79,7 @@ if lotto == 1:
               #print (type(pan))
               if numbers[num] == int(pan["P1"]) or numbers[num] == int(pan["P2"]) or numbers[num] == int(pan["P3"]) or numbers[num] == int(pan["P4"]) or numbers[num] == int(pan["P5"]) or numbers[num] == int(pan["P6"]) or numbers[num] == int(pan["P7"]):
                  hit+=1
-              if hit == 4:
+              if hit == 4 or hit == 6:
                #print(str(numbers) + " "+str(pan))
                PickNumbers=True
                File.write(pan["Drawdate"]+", ")
@@ -117,20 +112,13 @@ if lotto == 2:
 
           for pan in data:
 
-           if numbers[0] == int(pan["P1"]) and numbers[1] == int(pan["P2"]) and numbers[2] == int(pan["P3"]) and numbers[3] == int(pan["P4"]) and numbers[4] == int(pan["P5"]) and numbers[5] == int(pan["P6"]) and numbers[6]==int(pan["P7"]):
-              PickNumbers=True
-              File.write(pan["Drawdate"]+", ")
-           else:
-              PickNumbers=False 
-              #print(pan)
-
            hit=0
            for num in range(0,7):
                 #print(numbers[num])
                 #print (type(pan))
             if numbers[num] == int(pan["P1"]) or numbers[num] == int(pan["P2"]) or numbers[num] == int(pan["P3"]) or numbers[num] == int(pan["P4"]) or numbers[num] == int(pan["P5"]) or numbers[num] == int(pan["P6"] or numbers[num] == int(pan["P7"])):
                hit+=1
-            if hit == 4:
+            if hit == 4 or hit == 7:
                 #print(str(numbers) + " "+str(pan))
                PickNumbers=True
                File.write(pan["Drawdate"]+", ")
@@ -185,7 +173,7 @@ if lotto == 3:
               #print (type(pan))
               if numbers[num] == int(pan["p1"]) or numbers[num] == int(pan["p2"]) or numbers[num] == int(pan["p3"]) or numbers[num] == int(pan["p4"]):       
                 hit+=1
-              if hit == 3:
+              if hit == 2:
               #print(str(numbers) + " "+str(pan))
                 PickNumbers=True
                 File.write(pan["Drawdate"]+", ")
@@ -216,19 +204,13 @@ if lotto == 4:
 
           for pan in data:
 
-             if numbers[0] == int(pan["p1"]) and numbers[1] == int(pan["p2"]) and numbers[2] == int(pan["p3"]) and numbers[3] == int(pan["p4"]) and numbers[4] == int(pan["p5"]) and numbers[5] == int(pan["p6"]) and numbers[6] == int(pan["p7"]) and numbers[7] == int(pan["p8"]) and numbers[8] == int(pan["p9"]) and numbers[9] == int(pan["p10"]) and numbers[10] == int(pan["p11"]) and numbers[11] == int(pan["p12"]):
-                PickNumbers=True
-                File.write(pan["Drawdate"]+", ")
-             else:
-               PickNumbers=False
-
              hit=0
              for num in range(0,12):
                #print(numbers[num])
                #print (type(pan))
                  if numbers[num] == int(pan["p1"]) or numbers[num] == int(pan["p2"]) or numbers[num] == int(pan["p3"]) or numbers[num] == int(pan["p4"]) or numbers[num] == int(pan["p5"]) or numbers[num] == int(pan["p6"]) or numbers[num] == int(pan["p7"]) or numbers[num] == int(pan["p8"]) or numbers[num] == int(pan["p9"]) or numbers[num] == int(pan["p10"]) or numbers[num] == int(pan["p11"]) or numbers[num] == int(pan["p12"]):          
                   hit+=1
-                 if hit == 8 or hit == 0:
+                 if hit == 8 or hit == 4 or hit == 12:
                 #print(str(numbers) + " "+str(pan))
                   PickNumbers=True
                   File.write(pan["Drawdate"]+", ")
