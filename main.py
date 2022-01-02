@@ -225,7 +225,7 @@ if lotto == 4:
              for num in range(0,12):
                  if numbers[num] == int(pan["p1"]) or numbers[num] == int(pan["p2"]) or numbers[num] == int(pan["p3"]) or numbers[num] == int(pan["p4"]) or numbers[num] == int(pan["p5"]) or numbers[num] == int(pan["p6"]) or numbers[num] == int(pan["p7"]) or numbers[num] == int(pan["p8"]) or numbers[num] == int(pan["p9"]) or numbers[num] == int(pan["p10"]) or numbers[num] == int(pan["p11"]) or numbers[num] == int(pan["p12"]):          
                   hit+=1
-                 if hit == 8 or hit == 12:
+                 if hit == 12:
                   PickNumbers=True
                   File.write(pan["Drawdate"]+", ")
                   hits+=1
