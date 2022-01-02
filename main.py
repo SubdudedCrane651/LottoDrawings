@@ -22,7 +22,7 @@ def choose(i):
 
 jsonfile = choose(lotto)
 
-with open("/home/richard/Documents/sambashare/"+jsonfile,"rb") as f:
+with open(jsonfile,"rb") as f:
    data = json.load(f)
 
 global count
