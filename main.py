@@ -3,7 +3,6 @@ import json
 import random
 import os
 import requests
-import re
 
 os.system('clear')
 
@@ -119,7 +118,7 @@ class LottoDrawings():
                             or numbers[num] == int(pan["P5"]) or numbers[num] == int(pan["P6"]) \
                             or numbers[num] == int(pan["P7"]):
                              hit+=1
-                        if hit == 4 or hit == 6:
+                        if hit == 6:
                             PickNumbers=True
                             File.write(pan["Drawdate"]+", ")
                             hits+=1
