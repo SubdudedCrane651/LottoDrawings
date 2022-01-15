@@ -2,6 +2,8 @@
 import json
 import random
 import os
+import requests
+import re
 
 os.system('clear')
 
@@ -23,8 +25,17 @@ def choose(i):
 
 jsonfile = choose(lotto)
 
-with open(jsonfile,"rb") as f:
-   data = json.load(f)
+#jsonfile = "ToutouRien.txt"
+
+url = "https://richard-perreault.com/Documents/"+jsonfile
+
+response = requests.get(url)
+data = json.loads(response.text)
+
+pass
+
+#with open(jsonfile,"rb") as f:
+#   data = json.load(f)
 
 global count
 count = len(data)
@@ -183,19 +194,19 @@ class LottoDrawings():
 #Lotto 6/49 Drawings
 if lotto == 1:
     lottonumbers=LottoDrawings(7,49,-5,drawnumbers)    
-    print("The winning 6/49 numbers are "+str(lottonumbers.drawnumbers))
+    print("The winning 6/49 numbers are "+str(lottonumbers.drawnumbers)+" in a total of "+str(count)+" drawings")
 
 #LottoMax Drawings
 if lotto == 2:
     lottonumbers=LottoDrawings(8,50,-6,drawnumbers)    
-    print("The LottoMax winning numbers are "+str(lottonumbers.drawnumbers))
+    print("The LottoMax winning numbers are "+str(lottonumbers.drawnumbers)+" in a total of "+str(count)+" drawings")
 
 #Grande Vie Drawings
 if lotto == 3:
     lottonumbers=LottoDrawings(6,49,-4,drawnumbers)    
-    print("The winning Grande Vie numbers are "+str(lottonumbers.drawnumbers))
+    print("The winning Grande Vie numbers are "+str(lottonumbers.drawnumbers)+" in a total of "+str(count)+" drawings")
 
 #Tout ou Rien Drawings
 if lotto == 4:
     lottonumbers=LottoDrawings(13,24,-11,drawnumbers)    
-    print("The winning Tout ou Rien numbers are "+str(lottonumbers.drawnumbers))
+    print("The winning Tout ou Rien numbers are "+str(lottonumbers.drawnumbers)+" in a total of "+str(count)+" drawings")
